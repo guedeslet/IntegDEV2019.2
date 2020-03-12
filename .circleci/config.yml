@@ -59,15 +59,15 @@ jobs:
               --app app/build/outputs/apk/debug/app-debug.apk \
               --results-bucket cloud-test-${IntegProjectID}
 
-  - workflows:
-      version: 2
-      build_and_test:
-        jobs:
-          - build
-          - test:
-              requires:
-                - build
-              filters:
-                branches:
-                  only: master
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
 
