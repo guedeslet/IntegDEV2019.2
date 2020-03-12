@@ -35,7 +35,6 @@ jobs:
           destination: apk
 
   test:
-    docker:
       - image: circleci/android:api-28-alpha  # gcloud is baked into this image
     steps:
       - checkout
