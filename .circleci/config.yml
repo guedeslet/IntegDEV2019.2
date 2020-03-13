@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     working_directory: ~/code
@@ -60,7 +60,7 @@ jobs:
               --results-bucket cloud-test-${IntegProjectID}
 
 workflows:
-  version: 2
+  version: 2.1
   build_and_test:
     jobs:
       - build
