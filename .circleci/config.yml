@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     working_directory: ~/code
@@ -35,6 +35,7 @@ jobs:
           destination: apk
 
   test:
+    docker:
       - image: circleci/android:api-29  # gcloud is baked into this image
     steps:
       - checkout
@@ -58,14 +59,15 @@ jobs:
               --app app/build/outputs/apk/debug/app-debug.apk \
               --results-bucket cloud-test-${IntegProjectID}
 
-     -  workflows:
-        build_and_test:
-          jobs:
+workflows:
+  version: 2.1
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
             - build
-            - test:
-                requires:
-                  - build
-                filters:
-                  branches:
-                    only: master
+          filters:
+            branches:
+              only: master
 
