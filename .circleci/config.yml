@@ -36,7 +36,6 @@ jobs:
 
   test:
     docker:
-      - image: google/cloud-sdk
       - image: circleci/android:api-29  # gcloud is baked into this image
     steps:
       - checkout
