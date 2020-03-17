@@ -47,7 +47,7 @@ jobs:
       - run:
           name: Authorize gcloud and set config defaults
           command: |
-            sudo gcloud auth activate-service-account --key-file=.circleci/zinc-hour-261214-50342cf414fe.json
+            sudo gcloud auth activate-service-account --key-file=.circleci/integdevapps-firebase-adminsdk-9zewj-9884313ed0.json
             sudo gcloud --quiet config set project ${IntegProjectID}
       - run:
           name: Test with Firebase Test Lab
