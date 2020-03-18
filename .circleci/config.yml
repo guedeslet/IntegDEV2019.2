@@ -54,8 +54,7 @@ jobs:
           name: Test with Firebase Test Lab
           command: >
             sudo gcloud firebase test android run \
-              --app app/build/outputs/apk/debug/app-debug.apk \
-              --results-bucket cloud-test ${IntegProjectID} \
+              --app app/build/outputs/apk/debug/app-debug.apk
 
 workflows:
   version: 2.1
