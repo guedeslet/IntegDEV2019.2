@@ -47,7 +47,7 @@ jobs:
       - run:
           name: Authorize gcloud and set config defaults
           command: |
-            sudo gcloud auth activate-service-account --key-file=.circleci/integdevapps-firebase-adminsdk-9zewj-9884313ed0.json
+            sudo gcloud auth activate-service-account base64 --decode --ignore-garbage > --key-file=.circleci/integdevapps-firebase-adminsdk-9zewj-9884313ed0.json
             sudo gcloud config set project integdevapps
             sudo gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
       - run:
