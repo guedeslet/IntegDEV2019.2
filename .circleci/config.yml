@@ -39,7 +39,7 @@ jobs:
       - image: circleci/android:api-29  # gcloud is baked into this image
         auth:
           username: _json_key  # default username when using a JSON key file to authenticate
-          password: $integdevapps-firebase-adminsdk-9zewj-9884313ed0.json
+          password: $GCLOUD_SERVICE_KEY
     steps:
       - checkout
       - run:
