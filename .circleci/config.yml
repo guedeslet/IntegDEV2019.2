@@ -54,8 +54,13 @@ jobs:
           name: Test with Firebase Test Lab
           command: >
             sudo gcloud firebase test android run \
-              --app app/build/outputs/apk/debug/app-debug.apk
-              --results-bucket cloud-test-${IntegProjectID}
+             --app app/build/outputs/apk/debug/app-debug.apk \
+                          --type instrumentation \
+                          --app app-debug-unaligned.apk \
+                          --test app-debug-test-unaligned.apk \
+                          --device model=Nexus6,version=21,locale=en,orientation=portrait  \
+                          --device model=Nexus7,version=19,locale=fr,orientation=landscape
+
 
 workflows:
   version: 2.1
