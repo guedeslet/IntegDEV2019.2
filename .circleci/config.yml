@@ -37,9 +37,6 @@ jobs:
   test:
     docker:
       - image: circleci/android:api-29  # gcloud is baked into this image
-        auth:
-          username: _json_key  # default username when using a JSON key file to authenticate
-          password: $GCLOUD_SERVICE_KEY
     steps:
       - checkout
       - run:
