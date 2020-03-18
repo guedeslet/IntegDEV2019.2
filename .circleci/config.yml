@@ -37,6 +37,9 @@ jobs:
   test:
     docker:
       - image: circleci/android:api-29  # gcloud is baked into this image
+        auth:
+          username: _json_key  # default username when using a JSON key file to authenticate
+          password: $GCLOUD_SERVICE_KEY
     steps:
       - checkout
       - run:
@@ -47,7 +50,7 @@ jobs:
       - run:
           name: Authorize gcloud and set config defaults
           command: |
-            sudo gcloud auth activate-service-account --key-file=.circleci/integdevapps-firebase-adminsdk-9zewj-9884313ed0.json
+            echo $GCLOUD_SERVICE_KEY | sudo gcloud auth activate-service-account --key-file=.circleci/integdevapps-firebase-adminsdk-9zewj-9884313ed0.json
             sudo gcloud config set project integdevapps
       - run:
           name: Test with Firebase Test Lab
