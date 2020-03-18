@@ -52,6 +52,7 @@ jobs:
           command: |
             sudo gcloud auth activate-service-account --key-file=.circleci/integdevapps-firebase-adminsdk-9zewj-9884313ed0.json
             sudo gcloud config set project integdevapps
+            sudo gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
       - run:
           name: Test with Firebase Test Lab
           command: >
